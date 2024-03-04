@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Rock-Paper-Scissors</title>
+  </head>
+  <body>
+    <main class="main-container">
+      <!-- score-part -->
+      <section class="score-container">
+        <!-- gamename -->
+        <div class="game-name">
+          <span>ROCK</span>
+          <span>PAPER</span>
+          <span>SCISSORS</span>
+        </div>
+        <!-- game score -->
+        <div class="score">
+          <div class="score-comp">
+            <p class="score-name">COMPUTER SCORE</p>
+            <p class="score-num" id="score-pc-display">0</p>
+          </div>
+          <div class="score-your">
+            <p class="score-name score-name-your">YOUR SCORE</p>
+            <p class="score-num" id="score-your-display">0</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- image-part -->
+      <section class="images">
+        <!-- first-row -->
+        <div class="row-one">
+          <div class="rock" id="rock">
+            <img src="./assets/rock.png" alt="rock-image" />
+          </div>
+          <span class="line-1"></span>
+          <div class="scissors" id="scissors">
+            <img src="./assets/scissors.png" alt="scissor-image" />
+          </div>
+        </div>
+        <span class="line-2"></span>
+        <span class="line-3"></span>
+        <!-- second-row -->
+        <div class="row-two">
+          <div class="paper" id="paper">
+            <img src="./assets/paper.png" alt="paper-image" />
+          </div>
+        </div>
+      </section>
+
+      <!-- winner display -->
+      <section class="display-winner">
+        <!-- you picked -->
+        <div class="you-picked-div">
+          <span class="you-picked">YOU PICKED</span>
+          <div class="you-winner">
+            <img src="" alt="image-you" id="you-image" />
+            <div class="animation-1">
+              <div class="winner-animate-you">
+                <span class="circle-1" id="you-animationcircle"></span>
+                <span class="circle-2" id="you-animationcircle"></span>
+                <span class="circle-3" id="you-animationcircle"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- display winner  -->
+        <div class="display-who-won">
+          <div class="winner-shown">
+            <span class="who-win" id="who-win">YOU WIN</span>
+            <span class="against-pc">AGAINST PC</span>
+          </div>
+          <button class="play-again" id="play-again">PLAY AGAIN</button>
+        </div>
+
+        <!-- pc picked -->
+        <div class="pc-picked-div">
+          <span class="pc-picked">PC PICKED</span>
+          <div class="pc-winner">
+            <img src="" alt="image-pc" id="pc-image" />
+            <div class="animation-2">
+              <div class="winner-animate-pc">
+                <span class="circle-4" id="pc-animationcircle"></span>
+                <span class="circle-5" id="pc-animationcircle"></span>
+                <span class="circle-6" id="pc-animationcircle"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- rules -->
+      <aside class="aside-index">
+        <div class="game-rules">
+          <h1 class="game-rule-header">Game Rules</h1>
+          <img
+            src="./assets/close.png"
+            alt="close-button"
+            class="close-button"
+          />
+          <ul type="square">
+            <li>
+              Rock beats scissors, scissors beat paper, and paper beats rock.
+            </li>
+            <li>
+              Agree ahead of time whether you’ll count off “rock, paper,
+              scissors, shoot” or just “rock, paper, scissors.”
+            </li>
+            <li>
+              Use rock, paper, scissors to settle minor decisions or simply play
+              to pass the time
+            </li>
+            <li>
+              If both players lay down the same hand, each player lays down
+              another hand
+            </li>
+          </ul>
+        </div>
+        <div class="footer-button">
+          <div class="modal-button">
+            <button class="rules-button">RULES</button>
+          </div>
+          <a class="button-next-div" href="hurray.html" id="button-next">
+            <button class="button-next">NEXT</button>
+          </a>
+        </div>
+      </aside>
+    </main>
+    <script src="./index.js"></script>
+  </body>
+</html>

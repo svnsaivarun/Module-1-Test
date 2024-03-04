@@ -1,0 +1,722 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #8cc461;
+  font-family: "Roboto", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  min-width: 300px;
+  overflow-x: hidden;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding: 1rem 0;
+  width: 100%;
+  height: 100%;
+}
+
+.score-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 2px solid white;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 60%;
+  min-width: 300px;
+  height: auto;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+}
+
+.game-name {
+  display: flex;
+  flex-direction: column;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.score {
+  display: flex;
+  gap: 1rem;
+  font-weight: 700;
+}
+
+.score-comp,
+.score-your {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  background-color: white;
+  padding: 0.5rem;
+  height: 10rem;
+  width: 10rem;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.score-name {
+  color: #656565;
+  font-size: x-large;
+}
+
+.score-name-your {
+  width: 60%;
+}
+
+.score-num {
+  color: black;
+  font-size: 3rem;
+}
+
+/* images */
+.images {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.row-one {
+  display: flex;
+  justify-content: space-between;
+}
+
+.row-two {
+  display: flex;
+  justify-content: center;
+}
+
+.rock {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10rem;
+  height: 10rem;
+  border: 12px solid #0074b6;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.scissors {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10rem;
+  height: 10rem;
+  border: 12px solid #bd00ff;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.paper {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10rem;
+  height: 10rem;
+  border: 12px solid #ffa943;
+  border-radius: 100px;
+  cursor: pointer;
+  margin-top: -6rem;
+}
+
+.line-1 {
+  position: relative;
+  height: 1rem;
+  width: 10rem;
+  background-color: black;
+  z-index: -1;
+  margin-top: 4rem;
+}
+
+.line-2 {
+  position: relative;
+  height: 10rem;
+  width: 1rem;
+  background-color: black;
+  transform: rotate(-43deg);
+  z-index: -1;
+  margin-right: 10rem;
+  margin-top: -5rem;
+}
+
+.line-3 {
+  position: relative;
+  height: 10rem;
+  width: 1rem;
+  background-color: black;
+  transform: rotate(43deg);
+  z-index: -1;
+  margin-left: 10rem;
+  margin-top: -11.5rem;
+}
+
+/* display-winner */
+.display-winner {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.you-picked-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: white;
+  font-weight: 600;
+  font-size: large;
+  gap: 2rem;
+}
+
+.pc-picked-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: white;
+  font-weight: 600;
+  font-size: large;
+  gap: 2rem;
+}
+
+.display-who-won {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.winner-shown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.who-win {
+  font-size: xx-large;
+  font-weight: 800;
+}
+
+.against-pc {
+  font-size: large;
+  font-weight: 800;
+}
+
+.play-again {
+  width: 10rem;
+  height: 3rem;
+  padding: 1rem 0;
+  font-size: large;
+  margin-top: 0.5rem;
+  color: #6b6b6b;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* animation */
+.animation-1,
+.animation-2 {
+  position: absolute;
+}
+
+.winner-animate-you,
+.winner-animate-pc {
+  width: 10%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-1,
+.circle-2,
+.circle-3,
+.circle-4,
+.circle-5,
+.circle-6 {
+  position: absolute;
+  border-radius: 100px;
+  z-index: -1;
+}
+
+.circle-1,
+.circle-4 {
+  width: 7rem;
+  height: 7rem;
+  background-color: #1da82b;
+}
+
+.circle-2,
+.circle-5 {
+  width: 6rem;
+  height: 6rem;
+  background-color: #1da82bc9;
+}
+
+.circle-3,
+.circle-6 {
+  background-color: #0d521e;
+  width: 5rem;
+  height: 5rem;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: scale(2);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(2.75);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3);
+  }
+}
+
+.you-winner {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10rem;
+  height: 10rem;
+  border: 12px solid #0074b6;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.pc-winner {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10rem;
+  height: 10rem;
+  border: 12px solid #ffa943;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+/* rules */
+.aside-index,
+.aside-hurray {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.game-rules {
+  position: relative;
+  bottom: 9rem;
+  right: 1rem;
+  width: 22rem;
+  border: 7px solid white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  color: white;
+  background-color: #004429;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.game-rule-header {
+  text-align: center;
+  font-size: xx-large;
+}
+
+.close-button {
+  width: 15%;
+  height: 15%;
+  border-radius: 100%;
+  padding: 0.5rem;
+  position: absolute;
+  right: -1rem;
+  top: 0;
+  margin-top: -2rem;
+  background-color: red;
+  border: 5px solid white;
+  cursor: pointer;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0 0.5rem;
+}
+
+li::marker {
+  color: #ffa943;
+  font-size: large;
+}
+
+.footer-button {
+  position: absolute;
+  display: flex;
+  gap: 1rem;
+  bottom: 3rem;
+  right: 2rem;
+}
+
+.modal-button {
+  width: 9rem;
+  padding: 1rem;
+  border: 2px solid white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.rules-button {
+  background-color: transparent;
+  color: white;
+  font-weight: 600;
+  font-size: large;
+  border: none;
+  cursor: pointer;
+}
+
+.button-next-div {
+  width: 9rem;
+  padding: 1rem;
+  border: 2px solid white;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button-next {
+  background-color: transparent;
+  color: white;
+  font-weight: 600;
+  font-size: large;
+  border: none;
+  cursor: pointer;
+}
+
+/* hurray css */
+.main-container-hurray {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hurray-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.star {
+  width: 100%;
+  height: 50%;
+  margin-top: -2rem;
+  color: white;
+}
+
+.trophy {
+  width: 30%;
+  margin-top: -13rem;
+}
+
+.won-message {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.hurray-header {
+  color: white;
+  font-size: 5.5rem;
+  font-weight: 600;
+  margin-top: 4rem;
+}
+
+.you-won {
+  color: white;
+  font-size: 1.5rem;
+  flex-wrap: wrap;
+  width: 70%;
+  text-align: center;
+  font-weight: 600;
+}
+
+.play-again-hurray {
+  width: 10rem;
+  height: 3rem;
+  padding: 1rem 0;
+  font-size: large;
+  margin-top: 1.5rem;
+  color: #6b6b6b;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.game-rules-hurray {
+  position: relative;
+  bottom: 8rem;
+  right: 1rem;
+  width: 22rem;
+  border: 7px solid white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  color: white;
+  background-color: #004429;
+  display: none;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.close-button-hurray {
+  width: 15%;
+  height: 15%;
+  border-radius: 100%;
+  padding: 0.5rem;
+  position: absolute;
+  right: -1rem;
+  top: 0;
+  margin-top: -2rem;
+  background-color: red;
+  border: 5px solid white;
+  cursor: pointer;
+}
+
+.modal-button-hurray {
+  position: absolute;
+  bottom: 3rem;
+  right: 2rem;
+  width: 9rem;
+  padding: 1rem;
+  border: 2px solid white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.rules-button-hurray {
+  background-color: transparent;
+  color: white;
+  font-weight: 600;
+  font-size: large;
+  border: none;
+  cursor: pointer;
+}
+
+/* large screen */
+@media screen and (max-width: 1024px) {
+  .score-container {
+    justify-content: center;
+  }
+  .game-name {
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 2rem;
+    width: 100%;
+    justify-content: center;
+  }
+  .score-comp,
+  .score-your {
+    width: 8rem;
+    height: 8rem;
+  }
+  .score-name {
+    font-size: medium;
+  }
+}
+
+/* medium to small screen */
+@media screen and (max-width: 600px) {
+  .main-container {
+    gap: 0.5rem;
+  }
+
+  .rock,
+  .scissors,
+  .paper {
+    width: 5rem;
+    height: 5rem;
+    padding: 2rem;
+    cursor: none;
+  }
+  .line-1 {
+    margin-top: 2.2rem;
+    width: 8rem;
+  }
+  .line-2 {
+    height: 9rem;
+    margin-right: 5rem;
+    margin-top: -4rem;
+  }
+  .line-3 {
+    height: 9rem;
+    margin-left: 5rem;
+    margin-top: -11rem;
+  }
+  .game-rules {
+    position: absolute;
+    right: 0.5rem;
+    width: 18rem;
+  }
+
+  .aside-hurray {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: end;
+  }
+
+  .aside-index {
+    position: static;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: end;
+  }
+
+  .footer-button {
+    position: static;
+  }
+
+  .close-button {
+    cursor: none;
+  }
+
+  .modal-button {
+    width: 5rem;
+    cursor: none;
+  }
+
+  .rules-button {
+    font-size: small;
+    cursor: none;
+  }
+
+  .button-next-div {
+    width: 5rem;
+    cursor: none;
+  }
+
+  .button-next {
+    font-size: small;
+    cursor: none;
+  }
+
+  /* display-winner */
+  .display-winner {
+    width: 70%;
+    height: 50%;
+  }
+
+  .you-picked-div,
+  .pc-picked-div {
+    font-size: small;
+  }
+
+  .display-who-won {
+    gap: 10rem;
+  }
+
+  .who-win {
+    font-size: large;
+  }
+
+  .against-pc {
+    font-size: small;
+  }
+
+  .play-again {
+    width: 7rem;
+    font-size: small;
+    padding: 1rem 1rem;
+  }
+
+  .you-winner,
+  .pc-winner {
+    width: 4rem;
+    height: 4rem;
+    padding: 2rem;
+  }
+
+  .circle-4,
+  .circle-1 {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  .circle-5,
+  .circle-2 {
+    width: 3rem;
+    height: 3rem;
+  }
+  .circle-6,
+  .circle-3 {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  /* hurray */
+  .won-message {
+    width: 60%;
+  }
+  .hurray-header {
+    font-size: 4.5rem;
+    margin-top: 6rem;
+  }
+
+  .close-button-hurray,
+  .play-again-hurray {
+    cursor: none;
+  }
+
+  .modal-button-hurray {
+    width: 5rem;
+    bottom: 0.5rem;
+    right: 0;
+    cursor: none;
+  }
+  .rules-button-hurray {
+    font-size: small;
+    cursor: none;
+  }
+}
